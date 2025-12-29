@@ -1,0 +1,32 @@
+
+# jitsi
+docker
+# src/jitsi-compose
+
+# ftp
+cfssl
+python3-pillow ffmpeg
+# src/copyparty.py
+
+# config-manager
+yq
+socat
+
+# modo = 1
+# ----- 
+
+# slideshow
+ffmpeg
+mpv
+
+
+# modo = 0
+# ----
+
+# camera feed
+# src/mediamtx
+
+# call-solicitar
+# python-deps 
+
+
