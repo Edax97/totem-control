@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-mkdir -p "$HOME/.local/bin" "$HOME/.local/etc"
+mkdir -p "$HOME/.local/bin" "$HOME/.local/etc" "$HOME/.config/autostart"
 sudo chmod 744 *.sh
 
 cp *.sh "$HOME/.local/bin/"

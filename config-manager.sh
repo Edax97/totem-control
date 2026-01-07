@@ -6,7 +6,7 @@ source .env
 declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED PANEL_PING
 
 mkdir -p "$PLAYLIST_DIR"
-# Requires: ftp.service slideshow.service 
+# Requires: ftp.service slideshow.service
 # greet.service
 # meet.service
 
@@ -30,7 +30,7 @@ for ((;;)); do
     fi;
   # slideshow
   else
-    
+
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")
     SETTINGS_MODIFIED=$(stat --printf="%Y" "$SETTINGS_FILE")
     if [ $PLAYLIST_MODIFIED -lt $TIME_SINCE ] && [ $SETTINGS_MODIFIED -lt $TIME_SINCE ]; then
@@ -38,16 +38,14 @@ for ((;;)); do
     fi
     TIME_SINCE=$(date +%s)
 
-
     ls "$PLAYLIST_DIR" > "$FTP_DIR/.list.m3u"
     echo "fs=yes
 terminal=no
 image-display-duration=$IMAGE_DELAY" > "$FTP_DIR/.mpv.config"
-        
+
     echo '{ "command": ["loadfile", ".list.m3u"] }' | socat - /tmp/mpvsocket
     echo '{ "command": ["load-config-file", ".mpv.config"] }' | socat - /tmp/mpvsocket
-    
-  fi
-  
-done
 
+  fi
+
+done
