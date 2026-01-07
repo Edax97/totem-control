@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Slides
+Comment=Slideshow
+Exec=APP/slides.sh
+Terminal=false
+Categories=Utility;
