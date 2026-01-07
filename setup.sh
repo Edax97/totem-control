@@ -1,11 +1,15 @@
 #!/bin/bash
 #
-#
-mkdir -p "$HOME/.local/bin" "$HOME/.local/etc" "$HOME/.config/autostart"
-sudo chmod 744 *.sh
+APP_DIR="$HOME/app"
+mkdir -p "$APP_DIR" "$HOME/.config/autostart"
 
-cp *.sh "$HOME/.local/bin/"
-cp .env "$HOME/.local/etc/"
+sudo chmod 744 app/*.sh
 
-cp slides.desktop "$HOME/.config/autostart/"
-sed -i "s|HOME|$HOME|g" "$HOME/.config/autostart/slides.desktop"
+cp ./app/*.sh "$APP/"
+cp .totem.env "$HOME/.env"
+cp .settings.yaml "$HOME/Pictures/"
+
+cp slides.desktop init-ftp.desktop config-manager.desktop "$HOME/.config/autostart/"
+sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/slides.desktop"
+sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/init-ftp.desktop"
+sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/config-manager.desktop"
