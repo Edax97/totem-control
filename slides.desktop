@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Slides
+Comment=Slideshow
+Exec=HOME/.local/bin/slides.sh HOME/.local/etc/.env
+Terminal=false
+Categories=Utility;
