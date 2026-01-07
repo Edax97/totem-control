@@ -6,7 +6,7 @@ mkdir -p "$APP_DIR" "$HOME/.config/autostart"
 sudo chmod 744 app/*.sh
 
 cp ./app/*.sh "$APP/"
-cp .totem.env "$HOME/.env"
+cp .env "$HOME/.env"
 cp .settings.yaml "$HOME/Pictures/"
 
 cp slides.desktop init-ftp.desktop config-manager.desktop "$HOME/.config/autostart/"
