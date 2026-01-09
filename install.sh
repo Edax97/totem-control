@@ -1,1 +1,1 @@
-sudo apt install mpv socat ffmpeg
+sudo apt install mpv socat ffmpeg yq

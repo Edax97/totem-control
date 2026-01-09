@@ -4,7 +4,6 @@ source "$HOME/.env"
 
 MEDIAMTX_NAME=mediamtx
 GREETING_NAME=greeting.py
-MEETING_URL="https://totemlabotec.tail593816.ts.net/vigilancia"
 
 start_greet(){
     if pgrep -f "$MEDIAMTX_NAME" > /dev/null; then
