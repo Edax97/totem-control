@@ -1,27 +1,21 @@
 #!/bin/bash
 
 source "$HOME/.env"
-
-MEDIAMTX_NAME=mediamtx
-GREETING_NAME=greeting.py
-
-start_greet(){
-    if pgrep -f "$MEDIAMTX_NAME" > /dev/null; then
-        echo "Greeting running"
+export TOTEM_TIME
+start_greet () {
+    if pgrep -f "voice" > /dev/null; then
+        echo "Voice-cmd running"
         return 1
     fi
-    /usr/bin/python "$APP_DIR/greeting.py" &
-    $SRC_DIR/feed/mediamtx "$SRC_DIR/feed/mediamtx" &
+    $HOME/.pyenv/bin/python "$SRC_DIR/voice-cmd/voice-cmd.py" -m es -d 0
 }
 
-stop_greet(){
-    pkill -f "$MEDIAMTX_NAME" 2>/dev/null
-    pkill -f "$GREETING_NAME" 2>/dev/null
-    sleep 2
-    if pgrep -f "$MEDIAMTX_NAME" > /dev/null; then
+stop_greet () {
+    pkill -f "voice" 2>/dev/null
+    sleep 1
+    if pgrep -f "voice" > /dev/null; then
         echo "Forceful kill"
-        pkill -9 "$MEDIAMTX_NAME" 2>/dev/null
-        pkill -9 "$GREETING_NAME" 2>/dev/null
+        pkill -9 "voice" 2>/dev/null
         return 1
     fi
 
