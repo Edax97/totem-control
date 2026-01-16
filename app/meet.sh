@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FIREFOX_PROCESS_NAME=firefox
-MEETING_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
+MEETING_URL="https://meet.tail969bfa.ts.net/vigilancia"
 
 start_meet () {
     if pgrep -f "$FIREFOX_PROCESS_NAME" > /dev/null; then
