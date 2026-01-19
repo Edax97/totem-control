@@ -24,9 +24,11 @@ for ((;;)); do
     PANEL_PING=$(stat --printf="%Y" "$CONNECT_TIME")
     NOW=$(date +%s)
     if (( PANEL_PING + 30 < NOW )); then
+    # Hall
       start_greet
       start_meet
     else
+    # meet
       start_meet
       stop_greet
     fi;
