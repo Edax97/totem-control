@@ -2,7 +2,7 @@
 #
 mkdir -p "$HOME/.config/autostart"
 
-cp .env /usr/local/etc/
+sudo cp .env /usr/local/etc/
 cp .settings.yaml "$HOME/Pictures/"
 
 # config-manager
@@ -16,14 +16,14 @@ cp slides/slides.desktop "$HOME/.config/autostart/"
 # feed
 sudo cp feed/mediamtx /usr/local/bin/
 sudo cp feed/mediamtx.yml /usr/local/etc/
-sudo cp feed/feed.service "$HOME/.config/systemctl/user/"
+sudo cp feed/feed.service "$HOME/.config/systemd/user/"
 # voice
 sudo cp voice/voice.py voice/voice.sh /usr/local/bin/
-sudo cp voice/voice.service "$HOME/.config/systemctl/user/"
+sudo cp voice/voice.service "$HOME/.config/systemd/user/"
 # hall ui
 sudo cp interface-functions/hall.sh /usr/local/bin/
 # hall
-cp -r hall/hall-html "/var/www/"
+sudo cp -r hall/hall-html "/var/www/"
 
 # meet-ui
 sudo cp interface-functions/meet.sh /usr/local/bin/
