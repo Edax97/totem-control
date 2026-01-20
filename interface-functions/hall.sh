@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source "/usr/local/etc/.env"
-export TOTEM_TIME
 
 HALL_URL="http://127.0.0.1:6060"
 HALL_ID="$HOME/.hall_id"

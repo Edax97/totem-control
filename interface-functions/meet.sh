@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /usr/local/etc/.env
 MEETING_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
 MEET_ID="$HOME/.meet_id"
 
