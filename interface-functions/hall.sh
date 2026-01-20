@@ -13,7 +13,7 @@ start_hall() {
         echo "Hall running"
         return 1
     fi
-    /usr/bin/firefox --kiosk "$HALL_URL" > /dev/null 2>&1
+    /usr/bin/firefox --kiosk "$HALL_URL" > /dev/null 2>&1 &
     echo "$!" > "$HALL_ID"
 }
 

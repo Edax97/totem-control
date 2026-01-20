@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /usr/local/etc/.env
+#source /usr/local/etc/.env
 MEETING_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
 MEET_ID="$HOME/.meet_id"
 
@@ -10,7 +10,7 @@ start_meet () {
         echo "Firefox running"
         return 1
     fi
-    /usr/bin/firefox --kiosk "$MEETING_URL" > /dev/null 2>&1
+    /usr/bin/firefox --kiosk "$MEETING_URL" > /dev/null 2>&1 &
     echo "$!" > "$MEET_ID"
 }
 
