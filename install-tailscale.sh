@@ -429,7 +429,7 @@ main() {
 			OS_UNSUPPORTED=1
 			;;
 		macos)
-			# We delegate macOS installation to the app store, it will
+			# We delegate macOS installation to the interface-functions store, it will
 			# perform version checks for us.
 			;;
 		other-linux)

@@ -1,0 +1,13 @@
+[Unit]
+Description=Copyparty
+Wants=network-online.target
+
+[Service]
+Type=exec
+Environment=PATH=/usr/bin:/bin:/usr/local/bin:/usr/local/go/bin
+ExecStart=/usr/local/bin/copyparty.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

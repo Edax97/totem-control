@@ -1,16 +1,16 @@
 #!/bin/bash
-# exposed by ftp server w pass
-source "$HOME/.env"
-source "$APP_DIR/meet.sh"
-source "$APP_DIR/greet.sh"
+# exposed by copyparty server w pass
+source "/usr/local/etc/.env"
+source "/usr/local/bin/meet.sh"
+source "/usr/local/bin/hall.sh"
 # TOTEM-PING PANEL-PING
 
 declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED PANEL_PING
 
 mkdir -p "$PLAYLIST_DIR"
-# Requires: ftp.service slideshow.service
+# Requires: copyparty.service slideshow.service
 # greet.service
-# meet.service
+# interface-functions.service
 
 for ((;;)); do
 
@@ -25,17 +25,14 @@ for ((;;)); do
     NOW=$(date +%s)
     if (( PANEL_PING + 30 < NOW )); then
     # Hall
-      start_greet
-      start_meet
+      stop_meet
     else
     # meet
       start_meet
-      stop_greet
     fi;
   # slideshow
   else
 
-    stop_greet
     stop_meet
 
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")

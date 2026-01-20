@@ -1,15 +1,13 @@
 [Unit]
-Description=mpv server
+Description=Hall UI
 Wants=network-online.target
-After=network-online.target
 
 [Service]
 Type=exec
 Environment=PATH=/usr/bin:/bin:/usr/local/bin:/usr/local/go/bin
-EnvironmentFile=/home/pi/app/.env
-ExecStart=/home/pi/app/ftp-ser.sh
+ExecStart=/usr/local/bin/http-server -p 6060 /home/pi/hall-dist
 Restart=always
 RestartSec=10
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

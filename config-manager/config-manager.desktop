@@ -3,6 +3,6 @@ Version=1.0
 Type=Application
 Name=Config-manager
 Comment=Config manager
-Exec=APP/config-manager.sh
+Exec=/usr/local/bin/config-manager.sh
 Terminal=true
 Categories=Utility;

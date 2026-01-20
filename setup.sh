@@ -1,15 +1,43 @@
 #!/bin/bash
 #
-APP_DIR="$HOME/app"
-mkdir -p "$APP_DIR" "$HOME/.config/autostart"
+mkdir -p "$HOME/.config/autostart"
 
-sudo chmod 744 app/*.sh
-
-cp ./app/*.sh "$APP_DIR/"
-cp .env "$HOME/.env"
+cp .env /usr/local/etc/
 cp .settings.yaml "$HOME/Pictures/"
 
-cp app/slides.desktop app/init-ftp.desktop app/config-manager.desktop "$HOME/.config/autostart/"
-sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/slides.desktop"
-sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/init-ftp.desktop"
-sed -i "s|APP|$APP_DIR|g" "$HOME/.config/autostart/config-manager.desktop"
+# config-manager
+sudo cp config-manager/config-manager.sh /usr/local/bin/
+cp config-manager/config-manager.desktop "$HOME/.config/autostart/"
+
+# slides
+sudo cp slides/slides.sh /usr/local/bin/
+cp slides/slides.desktop "$HOME/.config/autostart/"
+
+# feed
+sudo cp feed/mediamtx /usr/local/bin/
+sudo cp feed/mediamtx.yml /usr/local/etc/
+sudo cp feed/feed.service "$HOME/.config/systemctl/user/"
+# voice
+sudo cp voice/voice.py voice/voice.sh /usr/local/bin/
+sudo cp voice/voice.service "$HOME/.config/systemctl/user/"
+# hall ui
+sudo cp interface-functions/hall.sh /usr/local/bin/
+# hall
+cp -r hall/hall-dist "$HOME/"
+sudo cp hall/hall.service /etc/systemd/system/
+
+# meet-ui
+sudo cp interface-functions/meet.sh /usr/local/bin/
+
+# copyparty
+sudo cp copyparty/copyparty-sfx.py copyparty/copyparty.sh /usr/local/bin/
+sudo cp copyparty/copyparty.service /etc/systemd/system/
+
+sudo chmod +x /usr/local/bin/*.sh /usr/local/bin/*.py /usr/local/bin/mediamtx
+
+# reload systemctl
+sudo systemctl daemon-reload
+sudo systemctl enable --now hall.service
+sudo systemctl enable --now copyparty.service
+systemctl --user daemon-reload
+
