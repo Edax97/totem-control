@@ -23,8 +23,7 @@ sudo cp voice/voice.service "$HOME/.config/systemctl/user/"
 # hall ui
 sudo cp interface-functions/hall.sh /usr/local/bin/
 # hall
-cp -r hall/hall-dist "$HOME/"
-sudo cp hall/hall.service /etc/systemd/system/
+cp -r hall/hall-html "/var/www/"
 
 # meet-ui
 sudo cp interface-functions/meet.sh /usr/local/bin/
@@ -37,7 +36,6 @@ sudo chmod +x /usr/local/bin/*.sh /usr/local/bin/*.py /usr/local/bin/mediamtx
 
 # reload systemctl
 sudo systemctl daemon-reload
-sudo systemctl enable --now hall.service
 sudo systemctl enable --now copyparty.service
 systemctl --user daemon-reload
 
