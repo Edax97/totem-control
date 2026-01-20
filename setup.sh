@@ -3,7 +3,7 @@
 mkdir -p "$HOME/.config/autostart"
 
 sudo cp .env /usr/local/etc/
-cp .settings.yaml "$HOME/Pictures/"
+sudo cp .settings.yaml "$HOME/Pictures/"
 
 # config-manager
 sudo cp config-manager/config-manager.sh /usr/local/bin/
@@ -36,6 +36,7 @@ sudo chmod +x /usr/local/bin/*.sh /usr/local/bin/*.py /usr/local/bin/mediamtx
 
 # reload systemctl
 sudo systemctl daemon-reload
-sudo systemctl enable --now copyparty.service
+sudo systemctl enable copyparty.service
+sudo systemctl restart copyparty.service
 systemctl --user daemon-reload
 
