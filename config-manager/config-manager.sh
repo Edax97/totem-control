@@ -25,15 +25,18 @@ for ((;;)); do
     NOW=$(date +%s)
     if (( PANEL_PING + 10 < NOW )); then
     # Hall
+      start_hall
       stop_meet
     else
     # meet
+      stop_hall
       start_meet
     fi;
   # slideshow
   else
 
     stop_meet
+    stop_hall
 
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")
     SETTINGS_MODIFIED=$(stat --printf="%Y" "$SETTINGS_FILE")

@@ -7,7 +7,7 @@ HALL_ID="$HOME/.hall_id"
 
 start_hall() {
     systemctl --user start feed.service
-    systemctl --user start voice.service
+#    systemctl --user start voice.service
     PID=$(cat "$HALL_ID" 2>/dev/null)
     if kill -0 "$PID" > /dev/null 2>&1; then
         echo "Hall running"
@@ -19,7 +19,7 @@ start_hall() {
 
 stop_hall () {
     systemctl --user stop feed.service
-    systemctl --user stop voice.service
+#    systemctl --user stop voice.service
     PID=$(cat "$HALL_ID" 2>/dev/null)
     kill "$PID" 2>/dev/null
     sleep 1
