@@ -25,10 +25,6 @@ writeQueueSize: 512
 # Maximum size of outgoing UDP packets.
 # This can be decreased to avoid fragmentation on networks with a low UDP MTU.
 udpMaxPayloadSize: 1472
-# Size of the read buffer of every UDP socket.
-# This can be increased to decrease packet losses.
-# It defaults to the default value of the operating system.
-udpReadBufferSize: 0
 
 # Command to run when a client connects to the server.
 # This is terminated with SIGINT when a client disconnects from the server.
@@ -748,7 +744,7 @@ paths:
   # example:
   # my_camera:
   cam:
-    runOnInit: ffmpeg -f v4l2 -i /dev/video1 -c:v libx264 -pix_fmt yuv420p -preset ultrafast -b:v 600k -f rtsp rtsp://localhost:$RTSP_PORT/$MTX_PATH
+    runOnInit: ffmpeg -f v4l2 -i /dev/video0 -c:v libx264 -pix_fmt yuv420p -preset ultrafast -b:v 600k -f rtsp rtsp://localhost:$RTSP_PORT/$MTX_PATH
     runOnInitRestart: yes
   # cam1:
   #   runOnInit: ffmpeg -f v4l2 -i /dev/video0 -c:v libx264 -pix_fmt yuv420p -preset ultrafast -b:v 600k -f whip http://localhost:8889
