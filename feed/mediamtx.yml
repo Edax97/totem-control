@@ -159,8 +159,6 @@ apiServerKey: server.key
 # Path to the server certificate.
 apiServerCert: server.crt
 # List of allowed CORS origins.
-# Supports wildcards: ['http://*.example.com']
-apiAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the HTTP server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
@@ -184,7 +182,6 @@ metricsServerKey: server.key
 metricsServerCert: server.crt
 # List of allowed CORS origins.
 # Supports wildcards: ['http://*.example.com']
-metricsAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the HTTP server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
@@ -208,7 +205,6 @@ pprofServerKey: server.key
 pprofServerCert: server.crt
 # List of allowed CORS origins.
 # Supports wildcards: ['http://*.example.com']
-pprofAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the HTTP server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
@@ -232,7 +228,6 @@ playbackServerKey: server.key
 playbackServerCert: server.crt
 # List of allowed CORS origins.
 # Supports wildcards: ['http://*.example.com']
-playbackAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the HTTP server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
@@ -325,7 +320,6 @@ hlsServerKey: server.key
 hlsServerCert: server.crt
 # List of allowed CORS origins.
 # Supports wildcards: ['http://*.example.com']
-hlsAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the HLS server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
@@ -383,7 +377,6 @@ webrtcServerKey: server.key
 webrtcServerCert: server.crt
 # List of allowed CORS origins.
 # Supports wildcards: ['http://*.example.com']
-webrtcAllowOrigins: ['*']
 # List of IPs or CIDRs of proxies placed before the WebRTC server.
 # If the server receives a request from one of these entries, IP in logs
 # will be taken from the X-Forwarded-For header.
