@@ -14,7 +14,7 @@ mkdir -p "$PLAYLIST_DIR"
 
 for ((;;)); do
 
-  sleep 10
+  sleep 2
   IMAGE_DELAY=$( yq '.image_delay' "$SETTINGS_FILE" )
   CONTENT_IS_ACTIVE=$( yq '.content_is_active' "$SETTINGS_FILE")
 
@@ -23,7 +23,7 @@ for ((;;)); do
     echo '{ "command": ["stop"] }' | socat - /tmp/mpvsocket
     PANEL_PING=$(stat --printf="%Y" "$CONNECT_TIME")
     NOW=$(date +%s)
-    if (( PANEL_PING + 10 < NOW )); then
+    if (( PANEL_PING + 3 < NOW )); then
     # Hall
       start_hall
       stop_meet
