@@ -13,7 +13,7 @@ clean_browser (){
 }
 
 start_meet () {
-    if pgrep -f 'firefox.*$MEET_URL' > /dev/null; then
+    if pgrep -f "firefox.*$MEET_URL" > /dev/null; then
         echo "Meet running"
         return 0
     fi
@@ -21,7 +21,7 @@ start_meet () {
     /usr/bin/firefox --kiosk "$MEET_URL" > /dev/null 2>&1 &
 }
 stop_meet () {
-     if pgrep -f 'firefox.*$MEET_URL' > /dev/null; then
-        pkill -f 'firefox.*$MEET_URL' 2>/dev/null
+     if pgrep -f "firefox.*$MEET_URL" > /dev/null; then
+        pkill -f "firefox.*$MEET_URL" 2>/dev/null
     fi
 }
