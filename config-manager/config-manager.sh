@@ -14,7 +14,7 @@ mkdir -p "$PLAYLIST_DIR"
 
 for ((;;)); do
 
-  sleep 2
+  sleep 3
   IMAGE_DELAY=$( yq '.image_delay' "$SETTINGS_FILE" )
   CONTENT_IS_ACTIVE=$( yq '.content_is_active' "$SETTINGS_FILE")
 

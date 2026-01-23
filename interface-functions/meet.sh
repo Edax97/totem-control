@@ -5,11 +5,12 @@ MEET_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
 
 clean_browser (){
     pkill -f "firefox" 2>/dev/null
-    sleep 0.4
+    sleep 1
     if pgrep -f "firefox" > /dev/null; then
         echo "Forceful kill"
         pkill -9 "firefox" 2>/dev/null
     fi
+    sleep 1
 }
 
 start_meet () {

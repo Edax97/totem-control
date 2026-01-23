@@ -6,11 +6,12 @@ HALL_URL="http://127.0.0.1:6060"
 
 clean_browser_ (){
     pkill -f "firefox" 2>/dev/null
-    sleep 0.4
+    sleep 1
     if pgrep -f "firefox" > /dev/null; then
       echo "Forceful kill"
       pkill -9 "firefox" 2>/dev/null
     fi
+    sleep 1
 }
 
 start_hall() {
