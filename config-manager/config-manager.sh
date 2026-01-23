@@ -26,19 +26,19 @@ for ((;;)); do
     if (( PANEL_PING + 5 < NOW )); then
     # Hall
       stop_meet
-      sleep 0.5
+      sleep 0.2
       start_hall
     else
     # meet
       stop_hall
-      sleep 0.5
+      sleep 0.2
       start_meet
     fi;
   # slideshow
   else
-
     stop_meet
     stop_hall
+    clean_browser
 
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")
     SETTINGS_MODIFIED=$(stat --printf="%Y" "$SETTINGS_FILE")
