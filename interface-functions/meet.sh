@@ -1,9 +1,7 @@
 #!/bin/bash
 
 source /usr/local/etc/.env
-MEETING_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
-MEET_ID="$HOME/.meet_id"
-echo "" > "$MEET_ID"
+MEET_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
 
 clean_browser (){
     pkill -f "firefox" 2>/dev/null
@@ -15,27 +13,15 @@ clean_browser (){
 }
 
 start_meet () {
-    PID=$(cat "$MEET_ID" 2>/dev/null)
-    if kill -0 "$PID" > /dev/null 2>&1; then
-        echo "Firefox running"
+    if pgrep -f "firefox.*$MEET_URL" > /dev/null; then
+        echo "Meet running"
         return 0
     fi
     clean_browser
-    sleep 0.4
-    /usr/bin/firefox --kiosk "$MEETING_URL" > /dev/null 2>&1 &
-    echo "$!" > "$MEET_ID"
+    /usr/bin/firefox --kiosk "$MEET_URL" > /dev/null 2>&1 &
 }
 stop_meet () {
-    PID=$(cat "$MEET_ID" 2>/dev/null)
-    if [ "$PID" = "" ]; then
-      return 0
+     if pgrep -f "firefox.*$MEET_URL" > /dev/null; then
+        pkill -f "firefox.*$MEET_URL" 2>/dev/null
     fi
-
-    kill "$PID" 2>/dev/null
-    sleep 0.2
-    if kill -0 "$PID" > /dev/null 2>&1; then
-        echo "Forceful kill"
-        kill -9 "$PID" 2>/dev/null
-    fi
-    echo "" > "$MEET_ID"
 }
