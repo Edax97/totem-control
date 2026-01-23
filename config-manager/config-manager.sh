@@ -23,7 +23,7 @@ for ((;;)); do
     echo '{ "command": ["stop"] }' | socat - /tmp/mpvsocket
     PANEL_PING=$(stat --printf="%Y" "$CONNECT_TIME")
     NOW=$(date +%s)
-    if (( PANEL_PING + 5 < NOW )); then
+    if (( PANEL_PING + 10 < NOW )); then
     # Hall
       stop_meet
       sleep 0.2

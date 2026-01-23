@@ -4,6 +4,7 @@ source "/usr/local/etc/.env"
 
 HALL_URL="http://127.0.0.1:6060"
 HALL_ID="$HOME/.hall_id"
+echo "" > "$HALL_ID"
 
 clean_browser_ (){
     pkill -f "firefox" 2>/dev/null
@@ -20,9 +21,8 @@ start_hall() {
     PID=$(cat "$HALL_ID" 2>/dev/null)
     if kill -0 "$PID" > /dev/null 2>&1; then
         echo "Hall running"
-        return 1
+        return 0
     fi
-
     clean_browser_
     /usr/bin/firefox --kiosk "$HALL_URL" > /dev/null 2>&1 &
     echo "$!" > "$HALL_ID"
@@ -33,6 +33,9 @@ stop_hall () {
 #    systemctl --user stop voice.service
 
     PID=$(cat "$HALL_ID" 2>/dev/null)
+    if [ "$PID" = "" ]; then
+      return 0
+    fi
     kill "$PID" 2>/dev/null
     sleep 0.2
 
@@ -41,6 +44,8 @@ stop_hall () {
         kill -9 "$PID" 2>/dev/null
         return 1
     fi
+
+    echo "" > "$HALL_ID"
 }
 
 
