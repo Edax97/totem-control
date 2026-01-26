@@ -24,7 +24,7 @@ for ((;;)); do
     TOTEM_PING=$(stat --printf="%Y" "$TOTEM_TIME")
     PANEL_PING=$(stat --printf="%Y" "$CONNECT_TIME")
     NOW=$(date +%s)
-    if (( PANEL_PING + 10 < NOW )) && (( TOTEM_PING + 50 < NOW )); then
+    if (( PANEL_PING + 10 < NOW )) && (( TOTEM_PING + 60 < NOW )); then
     # Hall
       stop_meet
       sleep 0.2
