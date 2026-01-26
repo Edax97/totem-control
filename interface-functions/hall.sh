@@ -16,7 +16,7 @@ clean_browser_ (){
 
 start_hall() {
     systemctl --user start feed.service
-#    systemctl --user start voice.service
+    systemctl --user start voice.service
     if pgrep -f "firefox.*$HALL_URL" > /dev/null; then
         echo "Hall running"
         return 0
@@ -27,7 +27,7 @@ start_hall() {
 
 stop_hall () {
     systemctl --user stop feed.service
-#    systemctl --user stop voice.service
+    systemctl --user stop voice.service
 
     if pgrep -f "firefox.*$HALL_URL" > /dev/null; then
         pkill -f "firefox.*$HALL_URL" 2>/dev/null
