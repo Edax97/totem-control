@@ -5,7 +5,7 @@ source "/usr/local/bin/meet.sh"
 source "/usr/local/bin/hall.sh"
 # TOTEM-PING PANEL-PING
 
-declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED PANEL_PING
+declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED PANEL_PING TOTEM_PING
 
 mkdir -p "$PLAYLIST_DIR"
 # Requires: copyparty.service slideshow.service
@@ -21,9 +21,10 @@ for ((;;)); do
   # videocall
   if [ $CONTENT_IS_ACTIVE -eq 0 ]; then
     echo '{ "command": ["stop"] }' | socat - /tmp/mpvsocket
+    TOTEM_PING=$(stat --printf="%Y" "$TOTEM_TIME")
     PANEL_PING=$(stat --printf="%Y" "$CONNECT_TIME")
     NOW=$(date +%s)
-    if (( PANEL_PING + 10 < NOW )); then
+    if (( PANEL_PING + 10 < NOW )) && (( TOTEM_PING + 50 < NOW )); then
     # Hall
       stop_meet
       sleep 0.2
