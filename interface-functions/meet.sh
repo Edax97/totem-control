@@ -26,3 +26,8 @@ stop_meet () {
         pkill -f "firefox.*$MEET_URL" 2>/dev/null
     fi
 }
+
+restart_meet() {
+    clean_browser
+    /usr/bin/firefox --kiosk "$MEET_URL" > /dev/null 2>&1 &
+}

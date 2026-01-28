@@ -32,7 +32,7 @@ for ((;;)); do
     else
     # meet
       stop_hall
-      sleep 1.2
+      sleep 2.5
       start_meet
     fi;
   # slideshow
