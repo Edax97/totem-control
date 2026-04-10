@@ -2,7 +2,7 @@
 # exposed by copyparty server w pass
 source "/usr/local/etc/.env"
 
-declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED PANEL_PING TOTEM_PING
+declare -i IMAGE_DELAY CONTENT_IS_ACTIVE TIME_SINCE=0 PLAYLIST_MODIFIED SETTINGS_MODIFIED SLIDES_STARTED=0
 
 mkdir -p "$PLAYLIST_DIR"
 # Requires: copyparty.service slideshow.service
@@ -22,9 +22,10 @@ for ((;;)); do
   else
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")
     SETTINGS_MODIFIED=$(stat --printf="%Y" "$SETTINGS_FILE")
-    if [ $PLAYLIST_MODIFIED -lt $TIME_SINCE ] && [ $SETTINGS_MODIFIED -lt $TIME_SINCE ]; then
+    if [ $PLAYLIST_MODIFIED -lt $TIME_SINCE ] && [ $SETTINGS_MODIFIED -lt $TIME_SINCE ] && [ $SLIDES_STARTED -eq 1 ]; then
       continue
     fi
+    SLIDES_STARTED=1
     TIME_SINCE=$(date +%s)
 
     ls "$PLAYLIST_DIR" > "$PLAYLIST_DIR/.list.m3u"

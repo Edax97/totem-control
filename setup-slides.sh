@@ -2,7 +2,7 @@
 #
 mkdir -p "$HOME/.config/autostart"
 
-sudo cp .env.slides /usr/local/etc/
+sudo cp .env.slides /usr/local/etc/.env
 sudo cp .settings.yaml "$HOME/Pictures/"
 
 # slides-manager
