@@ -17,7 +17,7 @@ for ((;;)); do
 
   # videocall
   if [ $CONTENT_IS_ACTIVE -eq 0 ]; then
-    echo '{ "command": ["stop"] }' | socat - /tmp/mpvsocket
+    killall mpv
   # slideshow
   else
     PLAYLIST_MODIFIED=$(stat --printf="%Y" "$PLAYLIST_DIR")
@@ -33,6 +33,10 @@ for ((;;)); do
 terminal=no
 image-display-duration=$IMAGE_DELAY" > "$HOME/.config/mpv/mpv.conf"
 
-    echo '{ "command": ["loadfile", ".list.m3u"] }' | socat - /tmp/mpvsocket
+    #echo '{ "command": ["loadfile", ".list.m3u"] }' | socat - /tmp/mpvsocket
+
+    killall mpv
+    mpv --loop-playlist --playlist="$PLAYLIST_DIR/.list.m3u" &
+
   fi
 done

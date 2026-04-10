@@ -11,7 +11,6 @@ cp slides-manager/slides-manager.desktop "$HOME/.config/autostart/"
 
 # slides
 sudo cp slides/slides.sh /usr/local/bin/
-cp slides/slides.desktop "$HOME/.config/autostart/"
 
 # copyparty
 sudo cp copyparty/copyparty-sfx.py copyparty/copyparty.sh /usr/local/bin/
