@@ -31,10 +31,8 @@ for ((;;)); do
     ls "$PLAYLIST_DIR" > "$PLAYLIST_DIR/.list.m3u"
     echo "fs=yes
 terminal=no
-image-display-duration=$IMAGE_DELAY" > "$PLAYLIST_DIR/.mpv.config"
+image-display-duration=$IMAGE_DELAY" > "$HOME/.config/mpv/mpv.conf"
 
     echo '{ "command": ["loadfile", ".list.m3u"] }' | socat - /tmp/mpvsocket
-    echo '{ "command": ["load-config-file", ".mpv.config"] }' | socat - /tmp/mpvsocket
-
   fi
 done
