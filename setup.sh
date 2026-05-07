@@ -22,7 +22,7 @@ sudo cp slides/slides.sh /usr/local/bin/
 # -----------------
 # hall web
 sudo cp -r hall/hall-html "/var/www/html"
-suco cp hall/hall-site "/etc/nginx/sites-enabled/"
+sudo cp hall/hall-site "/etc/nginx/sites-enabled/"
 
 # open hall web
 sudo cp interface-functions/hall.sh /usr/local/bin/
