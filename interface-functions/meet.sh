@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source /usr/local/etc/.env
-MEET_URL="https://c4d-totem.tail969bfa.ts.net/vigilancia"
 
 clean_browser (){
     pkill -f "firefox" 2>/dev/null

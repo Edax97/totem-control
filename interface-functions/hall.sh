@@ -2,8 +2,6 @@
 
 source "/usr/local/etc/.env"
 
-HALL_URL="http://127.0.0.1:6060"
-
 clean_browser_ (){
     pkill -f "firefox" 2>/dev/null
     sleep 1
