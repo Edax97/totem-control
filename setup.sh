@@ -21,7 +21,9 @@ sudo cp slides/slides.sh /usr/local/bin/
 # modo videoportero
 # -----------------
 # hall web
-sudo cp -r hall/hall-html "/var/www/"
+sudo cp -r hall/hall-html "/var/www/html"
+suco cp hall/hall-site "/etc/nginx/sites-enabled/"
+
 # open hall web
 sudo cp interface-functions/hall.sh /usr/local/bin/
 
@@ -40,6 +42,6 @@ sudo chmod +x /usr/local/bin/*.sh /usr/local/bin/*.py /usr/local/bin/mediamtx
 sudo systemctl daemon-reload
 sudo systemctl enable copyparty.service
 sudo systemctl restart copyparty.service
-sudo systemctl enable --now nginx
+sudo nginx -t && sudo systemctl reload nginx
 systemctl --user daemon-reload
 
