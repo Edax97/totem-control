@@ -22,7 +22,8 @@ start_meet () {
 }
 stop_meet () {
     if pgrep -a firefox | grep -F "$MEET_URL" > /dev/null; then
-        pkill -f "firefox" 2>/dev/null
+        MEET_URL_ESCAPED = $(echo $MEET_URL | sed 's/?/\\?/g')
+        pkill -f "firefox.*$MEET_URL_ESCAPED" 2>/dev/null
     fi
 }
 

@@ -7,5 +7,7 @@ sudo systemctl enable --now nginx
 # browser.sessionstore.resume_from_crash False
 # browser.sessionstore.max_resumed_crashes -1
 
-# install jitsi-meet
+# install p2p
+# 
+# 
 # 
