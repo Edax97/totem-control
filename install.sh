@@ -15,6 +15,9 @@ sudo systemctl enable --now nginx
 # 
 
 # install voice libraries
+sudo apt install build-essential portaudio19-dev python3-dev
 python -m venv $HOME/.pyenv
 source $HOME/.pyenv/bin/activate
 pip install -r voice/req.txt
+
+# install tailscale
