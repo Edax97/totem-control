@@ -8,12 +8,6 @@ sudo systemctl enable --now nginx
 # browser.sessionstore.max_resumed_crashes -1
 # toolkit.startup.max_resumed_crashes -1
 
-# install p2p
-# 
-# 
-# 
-# 
-
 # install voice libraries
 sudo apt install build-essential portaudio19-dev python3-dev
 python -m venv $HOME/.pyenv
@@ -21,3 +15,5 @@ source $HOME/.pyenv/bin/activate
 pip install -r voice/req.txt
 
 # install tailscale
+# ./install-tailscale.sh
+# sudo tailscale up
