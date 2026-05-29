@@ -6,8 +6,15 @@ sudo systemctl enable --now nginx
 # -- about:config
 # browser.sessionstore.resume_from_crash False
 # browser.sessionstore.max_resumed_crashes -1
+# toolkit.startup.max_resumed_crashes -1
 
 # install p2p
 # 
 # 
 # 
+# 
+
+# install voice libraries
+python -m venv $HOME/.pyenv
+source $HOME/.pyenv/bin/activate
+pip install -r voice/req.txt
