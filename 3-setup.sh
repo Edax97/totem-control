@@ -28,6 +28,7 @@ sudo cp hall/hall-site "/etc/nginx/sites-enabled/"
 sudo cp interface-functions/hall.sh /usr/local/bin/
 
 # camera feed
+systemctl --user stop feed.service
 sudo cp feed/mediamtx /usr/local/bin/
 sudo cp feed/mediamtx.yml /usr/local/etc/
 sudo cp feed/feed.service "$HOME/.config/systemd/user/"
