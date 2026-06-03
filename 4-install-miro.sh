@@ -9,6 +9,8 @@ sudo chown -R $USER:$USER /opt/mirotalk
 cd mirotalk || exit
 cp .env.template .env
 cp app/src/config.template.js app/src/config.js
+# pingTimeout increased on line 144
+cp server.js app/src/
 npm ci
 
 sudo npm i -g pm2

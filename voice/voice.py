@@ -10,6 +10,8 @@ import sys
 import sounddevice as sd
 import subprocess
 import os
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
 
 from vosk import Model, KaldiRecognizer
 
@@ -30,6 +32,22 @@ def callback(indata, frames, time, status):
     if status:
         print(status, file=sys.stderr)
     q.put(bytes(indata))
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        subprocess.run("date +%s > "+STATE_TOTEM_TIME, shell=True, check=True)
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"OK")
+
+    def log_message(self, format, *args):
+        pass  # Suppress default request logging
+def start_server():
+    server = HTTPServer(("", 6900), RequestHandler)
+    print("HTTP server listening on port 6900")
+    server.serve_forever()
+    
+threading.Thread(target=start_server, daemon=True).start()
 
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument(
